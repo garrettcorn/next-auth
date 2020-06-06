@@ -98,12 +98,12 @@ You can also get the session object in Next.js API routes:
 ```js
 import { session } from 'next-auth/client'
 
-export default (req, res) => {
-  const session = await session({ req })
+export default async(req, res) => {
+  const ses = await session({ req })
 
-  if (session) {
+  if (ses) {
     // Signed in
-    const { accessToken } = session.user
+    const { accessToken } = ses.user
 
     // Do something with accessToken (e.g. look up user in DB)
 
